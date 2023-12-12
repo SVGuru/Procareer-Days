@@ -1,0 +1,86 @@
+<!-- 
+Hello! 
+
+Design a web page with a form that allows users to input two numbers. Upon clicking 
+the submit button, use JavaScript to add the two numbers and display the result
+in a third field on the form.
+
+Please create a folder in git-repo and upload the files. 
+Share the link, here.
+
+-------------------------
+http://Git Hub link here:
+-------------------------
+Link:- 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise8-AddTwo</title>
+    <script>
+        function addTwo(){
+            // get content from input
+           let n1 =  parseFloat(document.getElementById('number1').value);
+           let n2 =  parseFloat(document.getElementById('number2').value);
+            //display in div
+            let result=n1+n2;
+            //document.getElementById('result').textContent = result;  //not work
+            document.getElementById('result').value = String(result);
+        }
+    </script>
+</head>
+<body>
+    
+    <!-- bs5-form-input -->
+
+    <div> <h1>Addition Form</h1> </div> 
+    
+    <label for="" class="form-label">Enter Number 1:</label>
+    <input
+        type="number"
+        class="form-control"
+        name=""
+        id="number1"
+        aria-describedby="helpId"
+        placeholder=""
+    />  <br>
+    <label for="" class="form-label">Enter Number 2:</label>
+    <input
+        type="number"
+        class="form-control"
+        name=""
+        id="number2"
+        aria-describedby="helpId"
+        placeholder=""
+
+    />  <br>
+    
+    <label for="" class="form-label">Result:</label>
+    <!-- <div  id="result"><input type="text" id="result" class="form-control"></div>   -->
+    <input
+    type="text"
+    class="form-control"
+    name=""
+    id="result"
+    aria-describedby="helpId"
+    placeholder=""
+    readonly
+    /> 
+    <br>
+    <button
+        type="submit"
+        class="btn btn-primary"
+        onclick="addTwo()"
+    >
+        Submit
+    </button>
+    
+
+</div>
+
+</body>
+</html>
