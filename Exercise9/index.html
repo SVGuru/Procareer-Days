@@ -1,0 +1,216 @@
+<!--
+Hello! 
+
+Design and implement a web page with HTML that features a grid comprising
+two columns and five rows. The first column should be designated for labels, 
+while the second column should be reserved for entering marks for 
+four different subjects. Upon clicking the submit button located 
+at the bottom of the grid, the page should dynamically transition 
+to hide the grid and display a table showcasing the entered marks 
+along with the overall Grade Point Average (GPA) for the subjects
+
+Please create a folder in git-repo and upload the files. 
+Share the link, here.
+
+-------------------------
+http://Git Hub link here:
+-------------------------
+Link:- 
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise9-JSRecap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+        .hideIt, #hidden {
+            display: none;
+        }
+
+        .gpa {
+            background: blue;
+        }
+    </style>
+    <script>
+    function fun() {
+        alert('welcome!');
+        let gpa = calculateGPA();
+        let g1 = document.getElementById("gd1").value;
+        document.getElementById('mydiv').textContent = " Hello! GPA: "+ String(gpa) + " g1: " + String(g1);
+
+    }
+
+    function calculateGPA() {
+        let g1 = parseFloat(document.getElementById('gd1').value);
+        let g2 = parseFloat(document.getElementById("gd2").value); 
+        let g3 = parseFloat(document.getElementById("gd3").value);
+        let g4 = parseFloat(document.getElementById("gd4").value);
+        
+        let gpaVal=(g1+g2+g3+g4)/4;
+
+        //console.log(gpaVal);
+
+        document.getElementById('td1').textContent = String(g1);
+        document.getElementById('td2').textContent = String(g2);
+        document.getElementById('td3').textContent = String(g3);
+        document.getElementById('td4').textContent = String(g4);
+        
+        document.getElementById('gpa').textContent = String(gpaVal);
+
+        return (gpaVal);
+    }
+
+
+    function ShowAndHide() {
+    
+        let gpa = calculateGPA();
+        console.log(gpa);
+       
+        document.getElementById('tableGPA').style.display = 'block';
+        //updateTable();
+        //showGpa('GPA', gpa);
+        // document.getElementById('GPA').value = String(gpa);
+      
+        
+       
+    }
+    </script>
+
+</head>
+<body>
+
+<!-- bs5-form-grid //  bs5-grid-default -->
+<div class="container ">
+    <form style="background: #d0f394;">
+        <div class="mx-3 row bg-info">
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">Subject
+                </label>
+            </div>
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">Grade
+                </label>
+            </div>
+        </div>
+        <div class="mx-3 row">
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">Mathematics
+                </label>
+            </div>
+            <div class="col">
+                <input
+                    type="number"
+                    class="form-control"
+                    id="gd1"
+                />
+            </div>
+        </div>    
+        <div class="mx-3 row">
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">English
+                </label>
+            </div>
+            <div class="col">
+                <input
+                    type="number"
+                    class="form-control"
+                    id="gd2"
+                />
+            </div>
+        </div>    
+        <div class="mx-3 row">
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">History
+                </label>
+            </div>
+            <div class="col">
+                <input
+                    type="number"
+                    class="form-control"
+                    id="gd3"
+                />
+            </div>
+        </div>    
+        <div class="mx-3 row">
+            <div class="col">   
+                <label
+                for=""
+                class="col col-form-label">Art
+                </label>
+            </div>
+            <div class="col">
+                <input
+                    type="number"
+                    class="form-control"
+                    id="gd4"
+                />
+            </div>
+        </div>    
+    </form>
+    
+    <button type="submit" class="btn btn-primary" onclick="ShowAndHide()">
+    Get GPA
+    </button>   
+</div>
+<br>
+<!-- For testing
+    <div class="bg-warning" id="mydiv"> This should change</div> -->
+    
+<!--------------------------------------->
+
+    
+    <div class="table-responsive">
+        <table
+            class="table table-primary hideIt" id="tableGPA">
+            <thead>
+                <tr>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td scope="row">Mathematics</td>
+                    <td id="td1">td1</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">English</td>
+                    <td id="td2">td2</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">History</td>
+                    <td id="td3">td3</td>
+                </tr>
+                <tr class="">
+                    <td scope="row">Art</td>
+                    <td id="td4">td4</td>
+                </tr>
+                <tr class="gpa" style="background-color: yellow">
+                    <td scope="row"><b>GPA</b></td>
+                    <td id="gpa"><b>gpa</b></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
