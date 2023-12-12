@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+
+
+        function fun(){
+            alert('welcome!')
+        }
+
+
+        function fun1(){
+            document.getElementById('etch1').style.display = 'none'
+        }
+
+
+
+
+        function fun3(){
+            // document.getElementById('changethis').innerHTML = ' Changed!!'
+            document.getElementById('changethis').textContent = ' Changed!!'
+        }
+        function fun4(){
+            // document.getElementById('mypara').textContent = '<b> Changed para text!! </b>'
+            document.getElementById('mypara').innerHTML = '<b> Changed para text!! </b>'
+        }
+       
+        function fun5(){
+            if(document.getElementById('showhidediv').style.display == 'none'){
+                document.getElementById('showhidediv').style.display='block';
+            }
+            else {
+                document.getElementById('showhidediv').style.display ='none';
+            }            
+        }
+
+
+        function fun6(){
+            // get content from input
+           let name =  document.getElementById('namefield').value;
+            //display in div
+            document.getElementById('mydiv').textContent = " Hello! "+ name;
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+   
+    <h1 id="etch1"> Do you like Dora?!!</h1>
+    <button onclick="fun()"> Click me to show alert!</button>
+
+    <h2> Hide content</h2>
+    <div>
+        <h1> Hello ! Welcome to my world of JS!</h1>
+    </div>
+    <button onclick="fun1()"> Click me to hide dora text!</button>
+
+
+    <h2> Change text </h2>
+    <h3 id="changethis"> This text should change</h3>
+    <button class='bg-warning' onclick="fun3()"> Click to change the above text</button>
+
+
+    <p id="mypara"> This text should change, and bolded text should appear</p>
+
+
+    <button class='bg-success' onclick="fun4()"> Click to change the above text to bolded text</button>
+
+
+    <br> <br>
+    <div id="showhidediv"> This should show / hide based on below button</div>
+    <button class='bg-info' onclick="fun5()"> Click to show hide above div</button>
+    <br> <br> <br>
+
+    <div> Please fill the form below </div>    
+        <label for="" class="form-label">Name</label>
+        <input
+            type="text"
+            class="form-control"
+            name=""
+            id="namefield"
+            aria-describedby="helpId"
+            placeholder=""
+        />  
+        <button
+            type="button"
+            class="btn btn-primary"
+            onclick="fun6()"
+        >
+            Click to greet!
+        </button>
+           
+    </div>
+   
+    <div class="bg-warning" id="mydiv"> This should change</div>
+
+
+
+
+</body>
+</html>
