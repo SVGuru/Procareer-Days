@@ -99,17 +99,28 @@ NOTE: Please use the JSON data given below.
 
 
 
-let bigstr='<table  class="table table-warning table-responsive">';
+//let bigstr='<table  class="table table-warning table-responsive">';
+// the above can not accept span style color 
+let bigstr='<table class="table-responsive table-warning">';
+let elm_no=0;
+let trcolor='style="background-color:violet"';
 
-Data.map( (elm) => {
+Data.map( (elm, elm_no) => {
+          elm_no++;
+          if (elm_no%2==1) {
+            trcolor='<tr style="background-color:violet">';
+          } else {
+            trcolor='<tr style="background-color:lightcyan">';
+          }
+          elm_no++;
 	  for(let key in elm){
-                let rowstr = "<tr><td>"+key+"</td>"+"<td>"+elm[key]+"</td></tr>";
+                let rowstr = trcolor+"<td>"+key+"</td>"+"<td>"+elm[key]+"</td></tr>";
                 bigstr=bigstr+rowstr;
 	  }
 	}
 );
 bigstr+="</table>";       
-console.log(Data);
+console.log(bigstr);
 
 document.getElementById('maindiv').innerHTML = bigstr;
 
