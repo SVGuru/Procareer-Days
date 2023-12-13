@@ -1,31 +1,61 @@
-async function getweather() {
+<!--  
+Hello!
+Create a weather application that fetches information from remote weather server 
+and displays information for that day. here is the link to fetch from -
 
-   try {
-    let city = document.getElementById('zipcode').value;
-    let key = 'd72729578543cfc435344f99b226b1c9'
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`
+https://api.openweathermap.org/data/2.5/weather?q=08536&appid=93f26e3c57081a6210de53b8dcfdfea4
+
+Use Async-Await to fetch information from the remote location.
+
+Feel free to get as much detail as possible from the JSON received from server 
+and display it in a format that is understandable by the user.
+
+
+Please create a folder in git-repo and upload the files. 
+Share the link here.
+
+-------------------------
+http://Git Hub link here:
+-------------------------
+Link:- 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Day15-WeatherMap</title>
+    <script src="app.js"></script>
+</head>
+<body>
+    <h2 class="bg-info"> Weather Map </h2>
+    <!-- bs5-form-input -->
+    <div class="container">
+    <div class="mb-3">
+        <label for="" class="form-label">Please Enter zipcode</label>
+        <input
+            type="text"
+            class="form-control"
+            name=""
+            id="zipcode"
+            aria-describedby="helpId"
+            placeholder=""
+        />
+    </div>
+    <button
+        type="submit"
+        class="btn btn-primary"
+        onclick="getweather()"
+    >
+        Click To Get Weather Information
+    </button>
     
-    await fetch(url)
-    .then((weather) => {return weather.json()})
-    .then(displayData);
-   }
-   catch{
-       console.log(" sorry something went wrong");
-   }
-}
+    <hr>
+    <p class="bg-info" id="w"> Geting information ...</p>
+    </div>
 
-function displayData(weather) {
-
-    //mydiv.innerHTML = "<h3>Getting Data ....</h3>";
-  let mydiv = document.getElementById('w');
-  console.log(weather);
-  let city = "City " + weather.name;
-  let tempFar = (weather.main.temp * 9/5) + 32;
-  let temp = '<span style="color:green"> Temperature ' + tempFar + " F";
-  let tempC = '<span style="color:yellow"> Temperature ' +weather.main.temp + " C";
-  let weaStr = '<span style="color:orange"> Looks like ' + weather.weather[0].description;
-  let windSpd = '<span style="color:violet"> Wind Speed ' + weather.wind.speed;
-  mydiv.innerHTML = `<h3>${city} <br> ${temp} <br>  ${tempC} <br> ${windSpd} <br>${weaStr}</h3>`;
-
-
-}
+</body>
+</html>
